@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "makeFiles", "makeFiles", "{0213FDF2-415C-4B07-BB54-2FF3AF9D3699}"
+	ProjectSection(SolutionItems) = preProject
+		..\makeFiles\linux_cmd_4_set_date_etc.txt = ..\makeFiles\linux_cmd_4_set_date_etc.txt
+		..\makeFiles\Makefile_app_header.mak = ..\makeFiles\Makefile_app_header.mak
+		..\makeFiles\Makefile_mat.mak = ..\makeFiles\Makefile_mat.mak
+		..\makeFiles\Makefile_Template_4_build_folder.mak = ..\makeFiles\Makefile_Template_4_build_folder.mak
+		..\makeFiles\Makefile_Template_4_test.mak = ..\makeFiles\Makefile_Template_4_test.mak
+		..\makeFiles\Makefile_util.mak = ..\makeFiles\Makefile_util.mak
+		..\makeFiles\run_all_w_cleanAll.sh = ..\makeFiles\run_all_w_cleanAll.sh
+		..\makeFiles\run_all_wo_cleanAll.sh = ..\makeFiles\run_all_wo_cleanAll.sh
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libMat", "libMat\libMat.vcxproj", "{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj", "{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}.Debug|x64.ActiveCfg = Debug|x64
+		{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}.Debug|x64.Build.0 = Debug|x64
+		{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}.Debug|x86.Build.0 = Debug|Win32
+		{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}.Release|x64.ActiveCfg = Release|x64
+		{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}.Release|x64.Build.0 = Release|x64
+		{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}.Release|x86.ActiveCfg = Release|Win32
+		{4F27B37A-6909-42D8-AA1A-C2D556FFE2F5}.Release|x86.Build.0 = Release|Win32
+		{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}.Debug|x64.ActiveCfg = Debug|x64
+		{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}.Debug|x64.Build.0 = Debug|x64
+		{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}.Debug|x86.ActiveCfg = Debug|Win32
+		{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}.Debug|x86.Build.0 = Debug|Win32
+		{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}.Release|x64.ActiveCfg = Release|x64
+		{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}.Release|x64.Build.0 = Release|x64
+		{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}.Release|x86.ActiveCfg = Release|Win32
+		{A43AFB3D-DD4E-4F1C-8B39-0C0D1F77E6D6}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF558082-1D4B-394C-82D3-62BBC7838E82}
+	EndGlobalSection
+EndGlobal

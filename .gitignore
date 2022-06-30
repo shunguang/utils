@@ -51,11 +51,18 @@ log*.txt
 # Other files 
 *.bin
 *.DS_Store
- 
+*.avi
+*.jpg
+*.gif
+*.GIF
+*.bak
+
 #--------------------------
 #folders to ignore
 #--------------------------
 data-sets/
+.vs/
+
 
 
 
