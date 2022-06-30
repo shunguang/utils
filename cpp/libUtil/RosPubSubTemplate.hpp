@@ -1,24 +1,25 @@
 /// Node to receive autopilot data
+//a pub-sub template with call back function
 
 #include "std_msgs/String.h"
-#include <fdnn/concurrency/DataDeque.hpp>
+#include <app/concurrency/DataDeque.hpp>
 #include <gt_uav_msgs/Attitude.h>
 #include <gt_uav_msgs/SimpleUTMPose.h>
 #include <ros/ros.h>
 
 #include <memory>
 
-class RosAutopilot : public fdnn::Autopilot {
+class RosPubSubTemplate : public app::Autopilot {
 public:
-	RosAutopilot(ros::NodeHandle &node)
-      : fdnn::Autopilot(fdnn::Config()) {
+	RosPubSubTemplate(ros::NodeHandle &node)
+      : app::Autopilot(app::Config()) {
     utm_sub_ = node.subscribe<gt_uav_msgs::SimpleUTMPose>(
         "/poseOut", 10,
-        std::bind(&RosAutopilot::callback, this, std::placeholders::_1));
+        std::bind(&RosPubSubTemplate::callback, this, std::placeholders::_1));
 
     atti_sub_ = node.subscribe<gt_uav_msgs::Attitude>(
         "/Attitude", 10,
-        std::bind(&RosAutopilot::attitude_callback, this,
+        std::bind(&RosPubSubTemplate::attitude_callback, this,
                   std::placeholders::_1));
   }
 
@@ -27,7 +28,7 @@ public:
   virtual void disconnect() {}
 
   void callback(const gt_uav_msgs::SimpleUTMPose::ConstPtr msg) {
-    fdnn::AutopilotState state;
+    app::AutopilotState state;
     state.timestamp = msg->rostime * 1000;
     state.attitude = attitude_.getStateNear(state.timestamp);
     state.gps_tag.lat = msg->lat;
@@ -47,7 +48,7 @@ public:
   }
 
   void attitude_callback(const gt_uav_msgs::Attitude::ConstPtr msg) {
-    fdnn::Attitude attitude;
+    app::Attitude attitude;
     attitude.timestamp = msg->rostime * 1000;
     attitude.roll = msg->roll;
     attitude.pitch = msg->pitch;
@@ -67,17 +68,17 @@ public:
 
   virtual void
   setTranslateGoal(cv::Point3f goal_meters,
-                   const fdnn::DescentInfo &descent_info) {}
+                   const app::DescentInfo &descent_info) {}
 
   virtual void
-  updateTargetFollow(const fdnn::ObjectPose &target,
-                     const fdnn::PlatformInfo &platform,
-                     fdnn::YawInfo desired_yaw,
-                     const fdnn::DescentInfo &descent_info) {}
+  updateTargetFollow(const app::ObjectPose &target,
+                     const app::PlatformInfo &platform,
+                     app::YawInfo desired_yaw,
+                     const app::DescentInfo &descent_info) {}
 
 private:
   ros::Subscriber utm_sub_;
   ros::Subscriber atti_sub_;
 
-  fdnn::DataDeque<fdnn::Attitude> attitude_;
+  app::DataDeque<app::Attitude> attitude_;
 };
